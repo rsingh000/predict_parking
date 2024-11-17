@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: flask-app
+    env: python
+    plan: free
+    runtime: "python3.9"  # Specify the Python runtime version
+    buildCommand: ""
+    startCommand: gunicorn app:app -b 0.0.0.0:$PORT
+

@@ -8,7 +8,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 from pymongo import MongoClient
 from sklearn.preprocessing import StandardScaler
-import pickle
+import joblib
 from dotenv import load_dotenv
 import os
 
@@ -17,6 +17,7 @@ mongo_uri = os.getenv("MONGO_URI")
 
 # Connect to MongoDB and fetch historical parking data
 client = MongoClient(mongo_uri)
+
 db = client['test']
 collection = db['occupancy_new']
 
@@ -69,4 +70,4 @@ y = model.predict(X_test)
 #print(f"Mean Absolute Error: {mae:.2f}")
 
 with open('parking_model.pkl', 'wb') as f:
-    pickle.dump(model, f)
+    joblib.dump(model, f)

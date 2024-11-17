@@ -1,9 +1,9 @@
 from flask import Flask, request, jsonify
-import pickle
+import joblib
 
 #Loading the model
 with open("parking_model.pkl", "rb") as f:
-    model = pickle.load(f);
+    model = joblib.load(f);
 
 app = Flask(__name__)
 

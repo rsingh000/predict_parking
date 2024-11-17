@@ -28,8 +28,6 @@ def predict():
     # Convert NumPy array to a list
     prediction_list = prediction.tolist()
 
-
-    
     return jsonify({'prediction': prediction_list})
 
 
